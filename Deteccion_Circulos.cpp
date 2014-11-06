@@ -13,11 +13,9 @@ using namespace cv;
 
 namespace
 {
-    // initial and max values of the parameters of interests.
-    const int cannyThresholdInitialValue = 200;
-    const int accumulatorThresholdInitialValue = 50;
-    const int maxAccumulatorThreshold = 200;
-    const int maxCannyThreshold = 255;
+    // initial values of the parameters of interests.
+    const int cannyThreshold = 200;
+    const int accumulatorThreshold = 50;
 }
 
 
@@ -48,10 +46,6 @@ int main(int argc, char** argv)
     // Reduce the noise so we avoid false circle detection
     GaussianBlur( src_gray, src_gray, Size(9, 9), 2, 2 );
 
-    //declare and initialize both parameters that are subjects to change
-    int cannyThreshold = cannyThresholdInitialValue;
-    int accumulatorThreshold = accumulatorThresholdInitialValue;
-
     // infinite loop to display
     // and refresh the content of the output image
     // until the user presses q or Q
@@ -67,7 +61,10 @@ int main(int argc, char** argv)
         std::vector<Vec3f> circles;
         // runs the actual detection
         HoughCircles( src_gray, circles, HOUGH_GRADIENT, 1, src_gray.rows/8, cannyThreshold, accumulatorThreshold, 0, 0 );
-
+        
+        // prints the number of detected circles
+        printf("%d\n", circles.size());
+        
         // get user key
         key = waitKey(10);
     }
