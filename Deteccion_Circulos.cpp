@@ -1,7 +1,6 @@
 /**
- * @file HoughCircle_Demo.cpp
- * @brief Demo code for Hough Transform
- * @author OpenCV team
+ * Referencia de: https://github.com/Itseez/opencv/blob/master/samples/cpp/tutorial_code/ImgTrans/HoughCircle_Demo.cpp
+ * modificado por: Ariel Obando, Fabio Ugalde, Alejandro Vargas
  */
 
 #include "opencv2/imgcodecs.hpp"
