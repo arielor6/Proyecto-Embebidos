@@ -23,15 +23,8 @@ int main(int argc, char** argv)
 {
     Mat src, src_gray;
 
-    if (argc < 2)
-    {
-        std::cerr<<"No input image specified\n";
-        std::cout<<usage;
-        return -1;
-    }
-
     // Read the image
-    src = imread( argv[1], 1 );
+    src = imread( "top.jpg", 1 );
 
     if( src.empty() )
     {
